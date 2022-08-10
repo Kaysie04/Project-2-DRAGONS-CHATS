@@ -7,7 +7,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // POST REQUESTS
 
-// create a new user profile
+// create a user profile
+
 router.post('/', (req, res)=> {
     User.create({ 
         username: req.body.username,
@@ -26,10 +27,11 @@ router.post('/', (req, res)=> {
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-})
+    });
+});
 
-// login to existing profile
+
+// user login
 
 router.post('/login', (req,res) => {
     User.findOne({
@@ -57,22 +59,25 @@ router.post('/login', (req,res) => {
     });
 });
 
-// logout an existing user
+  // user logout
 
-router.post('/logout', withAuth, (req,res)=> {
+  router.delete('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
-        req.session.destroy(()=> {
-        
-            res.status(204).end();
-        });
+      req.session.destroy(err => {
+        if (err) {
+          res.status(400).send('Unable to log out')
+        } else {
+          res.send('Logout successful')
+        }
+      });
     } else {
-        res.status(404).end();
+      res.end()
     }
-})
+  })
 
 // PUT REQUESTS
 
-// update a user's profile
+// update user
 
 router.put('/:id', withAuth, (req, res)=> {
     User.update(req.body, {
@@ -96,7 +101,8 @@ router.put('/:id', withAuth, (req, res)=> {
 
 // DELETE REQUESTS
 
-// user wants to delete profile
+//delete user
+
 router.delete('/:id', withAuth, (req, res)=> {
     User.destroy({
         where: { id: req.params.id}
