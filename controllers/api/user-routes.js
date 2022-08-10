@@ -61,17 +61,15 @@ router.post('/login', (req,res) => {
 
   // user logout
 
-  router.delete('/logout', withAuth, (req, res) => {
+  router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
-      req.session.destroy(err => {
-        if (err) {
-          res.status(400).send('Unable to log out')
-        } else {
-          res.send('Logout successful')
-        }
+      req.session.destroy(() => {
+
+        res.status(204).end();
       });
     } else {
-      res.end()
+
+      res.status(404).end();
     }
   })
 
