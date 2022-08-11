@@ -46,4 +46,7 @@ router.get('/edituser', withAuth, (req, res) => {
       })
     });
   
+    router.get('/chat-room', (req, res)=> {
+    res.render('chat-room')
+     });
   module.exports = router;
