@@ -4,11 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 
 const app = express();
-<<<<<<< HEAD
-const PORT = process.env.PORT || 3000;
-=======
 const PORT1 = process.env.PORT || 3000;
->>>>>>> Kaysie-chat-room
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
