@@ -105,4 +105,234 @@
   
   .st-things-g {
     letter-spacing: -3px;
+  }* {
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: #333;
+    background: #000;
+  }
+  
+  a {
+    text-decoration: none;
+    color:  #ed2b12;
+    font-weight: bold;
+    transition: color .1s;
+  }
+
+  nav a {
+    padding: 5px;
+  }
+  
+  a:hover {
+    color: #3486eb;
+  }
+  
+  button {
+    background-color: #225ca3;
+    border: 0;
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #3486eb;
+  }
+  
+  .post-list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  textarea, input {
+    padding: .5%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  textarea:focus, input:focus {
+    outline: none;
+    border: 1px solid #3486eb;
+  }
+  
+  textarea {
+    min-width: 40%;
+    min-height: 100px;
+  }
+  
+  form > div {
+    margin-bottom: 2%;
+  }
+  
+  form label {
+    display: block;
+  }
+  
+  .wrapper {
+    width: 100%;
+    min-height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+  }
+  
+  header h1 {
+    font-size: 1em;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2% 4%;
+  }
+  
+  .btn-no-style {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: #225ca3;
+    font-size: 100%;
+    font-weight: bold;
+    transition: color .1s;
+    margin-left: 16px;
+  }
+  
+  .btn-no-style:hover {
+    background: none;
+    color: #3486eb;
+  }
+  
+  footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-size: 110%;
+  }
+
+/* home page css */
+
+  .st {
+    width: 625px;
+    margin: 6rem auto 3rem auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 8rem;
+    font-family: 'ITC Benguiat W01';
+    font-weight: 800;
+    color: #1c0502;
+    text-shadow: -0.05rem -0.05rem 1px #ed2b12,
+      0.05rem -0.05rem 1px #ed2b12,
+      -0.05rem 0.05rem 1px #ed2b12,
+      0.05rem 0.05rem 1px #ed2b12,
+      0 0 15px #630100,
+      0 0 20px #450100;
+    letter-spacing: -2px;
+  }
+  
+  .st p {
+    display: inline-block;
+    margin: 0;
+  }
+  
+  .st-bound {
+    box-shadow: -0.05rem -0.05rem 2px #ed2b12,
+      0.05rem -0.05rem 2px #ed2b12,
+      -0.05rem 0.05rem 2px #ed2b12,
+      0.05rem 0.05rem 2px #ed2b12;
+    height: 5px;
+  }
+  
+  .st-bound-full {
+    width: 100%;
+    margin: auto;
+    margin-bottom: -1.2rem;
+    max-width: 612px;
+    margin-left: 5px;
+  }
+  
+  .st-bound-mini {
+    margin-top: 0.5rem;
+  }
+  
+  .st-bound-left {
+    float: left;
+    width: 99px;
+    position: relative;
+    left: 5px;
+  }
+  
+  .st-bound-right {
+    float: right;
+    width: 103px;
+    left: 0.3rem;
+    position: relative;
+  }
+  
+  .st-bottom {
+    clear: both;
+    top: -3.75rem;
+    position: relative;
+    left: .6rem;
+    letter-spacing: 2px;
+  }
+  
+  .st-drop {
+    line-height: 0;
+    position: relative;
+    top: 1.55rem;
+  }
+  
+  .st-stranger-s {
+    font-size: 10.5rem;
+    letter-spacing: -8px;
+  }
+  
+  .st-stranger-t {
+    letter-spacing: 0;
+  }
+  
+  .st-stranger-n {
+    letter-spacing: -5px;
+  }
+  
+  .st-stranger-g {
+    letter-spacing: 0;
+  }
+  
+  .st-stranger-r-2 {
+    font-size: 10.5rem;
+    right: 0.2rem;
+  }
+  
+  .st-things-t {
+    font-size: 104%;
+    letter-spacing: 2px;
+  }
+  
+  .st-things-n {
+    letter-spacing: -5px;
+  }
+  
+  .st-things-g {
+    letter-spacing: -3px;
   }

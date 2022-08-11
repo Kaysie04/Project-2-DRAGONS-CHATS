@@ -1,6 +1,5 @@
 
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const {User} = require('../models');
 const withAuth = require('../utils/auth')
 
@@ -45,5 +44,11 @@ router.get('/edituser', withAuth, (req, res) => {
         res.status(500).json(err);
       })
     });
+
+      // route to chat-room
+
+    router.get('/chat-room', (req, res)=> {
+      res.render('chat-room')
+    })
   
   module.exports = router;
