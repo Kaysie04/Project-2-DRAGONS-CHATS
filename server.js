@@ -39,8 +39,10 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 // chat room 
-  const PORT2 = process.env.PORT || 3001;
-  const io = require('socket.io')(`${PORT2}`)
+   const PORT2 = process.env.PORT || 8001;
+  server = require('http').createServer(app)
+  const io = require('socket.io').listen(server)
+  server.listen(`${PORT2}`)
   const users = {}
 
   io.on('connection', socket => {

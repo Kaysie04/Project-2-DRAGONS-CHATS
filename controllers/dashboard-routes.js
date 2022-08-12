@@ -1,7 +1,8 @@
 
 const router = require('express').Router();
 const {User} = require('../models');
-const withAuth = require('../utils/auth')
+const withAuth = require('../utils/auth');
+const path = require('path');
 
 
 // route to render dashboard page 
@@ -46,12 +47,15 @@ router.get('/edituser', withAuth, (req, res) => {
     });
 
       // route to chat-room
-
-    router.get('/chat-room', (req, res)=> {
-      res.render('chat-room')
-    })
   
-    router.get('/chat-room', (req, res)=> {
-    res.render('chat-room')
-     });
+    // router.get('/chat-room', (req, res)=> {
+    //   res.sendFile('chat-room.html', { root: path.join(__dirname, '../public') });
+    // })
+
+    router.get('/chat-room',function(req, res){
+      //res.sendFile(__dirname + '/public' + '/chat-room.html');
+      // res.sendFile('public/chat-room.html' , { root : __dirname});
+      res.render('chat-room')
+    });
+  
   module.exports = router;
