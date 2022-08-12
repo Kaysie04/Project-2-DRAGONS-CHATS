@@ -3,7 +3,9 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 
+
 const app = express();
+server = require('http').createServer(app);
 const PORT1 = process.env.PORT || 3000;
 
 const sequelize = require("./config/connection");
@@ -35,15 +37,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers/'));
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT1, () => console.log(`Now Listening on ${PORT1}`));
+  server.listen(PORT1, () => console.log(`Now Listening on ${PORT1}`));
 });
 
 // chat room 
-   const PORT2 = process.env.PORT || 8001;
-  server = require('http').createServer(app)
   const io = require('socket.io').listen(server)
-  server.listen(`${PORT2}`)
   const users = {}
+  
 
   io.on('connection', socket => {
     socket.on('new-user', name => {

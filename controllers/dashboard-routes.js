@@ -53,8 +53,7 @@ router.get('/edituser', withAuth, (req, res) => {
     // })
 
     router.get('/chat-room',function(req, res){
-      //res.sendFile(__dirname + '/public' + '/chat-room.html');
-      // res.sendFile('public/chat-room.html' , { root : __dirname});
+      // res.sendFile('chat-room.html', { root: path.join(__dirname, '../public') });
       res.render('chat-room', {loggedIn: true })
     });
   

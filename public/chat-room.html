@@ -5,49 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chat App</title>
-
-  <!-- <script src="http://localhost:3001/socket.io/socket.io.js"></script> -->
-  <script src="https://cdn.socket.io/socket.io-2.2.0.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-
-  <script>
-const socket = io('http://localhost:3001')
-// const socket = io();
-const messageContainer = document.getElementById('message-container')
-const messageForm = document.getElementById('send-container')
-const messageInput = document.getElementById('message-input')
-
-const name = prompt('What is your name?')
-appendMessage('You joined')
-socket.emit('new-user', name)
-
-socket.on('chat-message', data => {
-  appendMessage(`${data.name}: ${data.message}`)
-})
-
-socket.on('user-connected', name => {
-  appendMessage(`${name} connected`)
-})
-
-socket.on('user-disconnected', name => {
-  appendMessage(`${name} disconnected`)
-})
-
-messageForm.addEventListener('submit', e => {
-  e.preventDefault()
-  const message = messageInput.value
-  appendMessage(`You: ${message}`)
-  socket.emit('send-chat-message', message)
-  messageInput.value = ''
-})
-
-function appendMessage(message) {
-  const messageElement = document.createElement('div')
-  messageElement.innerText = message
-  messageContainer.append(messageElement)
-}
-  </script>
-
 </head>
 <body>
   <div id="message-container"></div>
@@ -55,5 +12,46 @@ function appendMessage(message) {
     <input type="text" id="message-input">
     <button type="submit" id="send-button">Send</button>
   </form>
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io()
+    const messageContainer = document.getElementById('message-container')
+    const messageForm = document.getElementById('send-container')
+    const messageInput = document.getElementById('message-input')
+    
+    const name = prompt('What is your name?')
+    appendMessage('You joined')
+    socket.emit('new-user', name)
+    
+    socket.on('chat-message', data => {
+      appendMessage(`${data.name}: ${data.message}`)
+    })
+    
+    socket.on('user-connected', name => {
+      appendMessage(`${name} connected`)
+    })
+    
+    socket.on('user-disconnected', name => {
+      appendMessage(`${name} disconnected`)
+    })
+    
+    messageForm.addEventListener('submit', e => {
+      e.preventDefault()
+      const message = messageInput.value
+      appendMessage(`You: ${message}`)
+      socket.emit('send-chat-message', message)
+      messageInput.value = ''
+    })
+    
+    function appendMessage(message) {
+      const messageElement = document.createElement('div')
+      messageElement.innerText = message
+      messageContainer.append(messageElement)
+    }
+      </script>
 </body>
+
+
 </html>
