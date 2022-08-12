@@ -55,7 +55,7 @@ router.get('/edituser', withAuth, (req, res) => {
     router.get('/chat-room',function(req, res){
       //res.sendFile(__dirname + '/public' + '/chat-room.html');
       // res.sendFile('public/chat-room.html' , { root : __dirname});
-      res.render('chat-room')
+      res.render('chat-room', {loggedIn: true })
     });
   
   module.exports = router;

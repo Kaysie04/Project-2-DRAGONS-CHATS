@@ -14,8 +14,9 @@
         <nav>
           <span><a href="/dashboard">Home</a></span> 
           {{#if loggedIn}}
+          <a href="/dashboard/edituser">Settings</a> 
           <button id="logout" class="btn-no-style">Logout</button>
-          {{else}}
+          {{else}}      
           <a href="/login">Login</a>
           {{/if}}
         </nav>
