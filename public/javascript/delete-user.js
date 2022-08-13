@@ -1,4 +1,6 @@
 async function deleteFormHandler(event) {
+
+
     event.preventDefault();
 
    // Get the user name, user id, email, and password from the form
@@ -21,7 +23,7 @@ async function deleteFormHandler(event) {
    userUpdate = JSON.parse(userUpdate)
 
 
-    // use the delete route to delete the post
+    // use the delete route to delete user
     const response = await fetch(`/api/users/${id}`, {
         method: 'DELETE',
         body: JSON.stringify(userUpdate),

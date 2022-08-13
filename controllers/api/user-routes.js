@@ -105,12 +105,13 @@ router.delete('/:id', withAuth, (req, res)=> {
     User.destroy({
         where: { id: req.params.id}
     })
-    .then(userData => {
-        if (!userData) {
-            res.status(404).json({ message: 'No user found'});
-            return;
-        }
+    .then((userData)=> {
         res.json(userData)
+        if (req.session.loggenIn){
+            req.session.destroy(()=> {
+                res.status(204).end();
+            })
+        }
     })
     .catch(err => {
         console.log(err);
