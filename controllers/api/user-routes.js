@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {User} = require('../../models');
 const session = require('express-session');
 const withAuth = require('../../utils/auth');
+const { Session } = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
@@ -17,11 +18,11 @@ router.post('/', (req, res)=> {
     })
     .then(newUserData => {
         req.session.save(()=> {
-            req.session.user_id = userData.id;
-            req.session.username = userData.username;
+            req.session.user_id = newUserData.id;
+            req.session.username = newUserData.username;
             req.session.loggedIn = true;
 
-            res.json(userData)
+            res.json(newUserData)
         });
     })
     .catch(err => {
@@ -64,7 +65,6 @@ router.post('/login', (req,res) => {
   router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
-
         res.status(204).end();
       });
     } else {
@@ -105,14 +105,14 @@ router.delete('/:id', withAuth, (req, res)=> {
     User.destroy({
         where: { id: req.params.id}
     })
-    .then((userData)=> {
-        res.json(userData)
-        if (req.session.loggenIn){
-            req.session.destroy(()=> {
-                res.status(204).end();
-            })
+    .then(()=> {
+        if (req.session.loggedIn) {
+            req.session.destroy(() => {
+              res.status(204).end();
+            });
         }
     })
+
     .catch(err => {
         console.log(err);
         res.status(500).json(err)
