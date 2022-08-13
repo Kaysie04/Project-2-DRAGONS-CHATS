@@ -40,6 +40,8 @@ sequelize.sync({ force: false }).then(() => {
   server.listen(PORT1, () => console.log(`Now Listening on ${PORT1}`));
 });
 
+
+
 // chat room 
   const io = require('socket.io').listen(server)
   const users = {}

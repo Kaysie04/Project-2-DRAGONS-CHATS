@@ -46,14 +46,10 @@ router.get('/edituser', withAuth, (req, res) => {
       })
     });
 
+    
       // route to chat-room
-  
-    // router.get('/chat-room', (req, res)=> {
-    //   res.sendFile('chat-room.html', { root: path.join(__dirname, '../public') });
-    // })
 
     router.get('/chat-room',function(req, res){
-      // res.sendFile('chat-room.html', { root: path.join(__dirname, '../public') });
       res.render('chat-room', {loggedIn: true })
     });
   
