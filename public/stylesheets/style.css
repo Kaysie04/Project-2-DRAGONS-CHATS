@@ -7,7 +7,7 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: #333;
+  color: #ed2b12;
   background: #000;
 }
 
@@ -27,7 +27,7 @@ a:hover {
 }
 
 button {
-  background-color: #225ca3;
+  background-color: #ed2b12;
   border: 0;
   padding: 1%;
   color: white;
@@ -102,7 +102,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: #ed2b12;
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -115,7 +115,7 @@ main {
 }
 
 .delete-post-btn {
-  background-color: #d41414;
+  background-color: #ed2b12;
 }
 
 .delete-post-btn:hover {
@@ -236,4 +236,8 @@ footer {
 
 .st-things-g {
   letter-spacing: -3px;
+}
+
+.delete-user-form {
+  padding-top: 7px;
 }
