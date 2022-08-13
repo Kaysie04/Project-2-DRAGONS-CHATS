@@ -32,7 +32,7 @@ async function deleteFormHandler(event) {
     // if the delete action is successful, redirect to the login page, otherwise display the error
     if (response.ok) {
         document.location.replace('/');
-        // otherwise, display the error
+        // display the error
         } else {
         alert(response.statusText);
         }
