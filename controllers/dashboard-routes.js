@@ -25,7 +25,7 @@ router.get('/', withAuth, (req,res) => {
 });
 
 // A route to edit user credentials
-router.get('/edituser', withAuth, (req, res) => {
+router.get('/edituser/:id', withAuth, (req, res) => {
     User.findOne({
       attributes: { exclude: ['password'] },
       where: {

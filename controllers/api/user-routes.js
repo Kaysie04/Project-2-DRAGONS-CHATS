@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {User} = require('../../models');
 const session = require('express-session');
 const withAuth = require('../../utils/auth');
+const { Session } = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
@@ -64,7 +65,6 @@ router.post('/login', (req,res) => {
   router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
-
         res.status(204).end();
       });
     } else {
@@ -105,13 +105,14 @@ router.delete('/:id', withAuth, (req, res)=> {
     User.destroy({
         where: { id: req.params.id}
     })
-    .then(userData => {
-        if (!userData) {
-            res.status(404).json({ message: 'No user found'});
-            return;
+    .then(()=> {
+        if (req.session.loggedIn) {
+            req.session.destroy(() => {
+              res.status(204).end();
+            });
         }
-        res.json(userData)
     })
+
     .catch(err => {
         console.log(err);
         res.status(500).json(err)

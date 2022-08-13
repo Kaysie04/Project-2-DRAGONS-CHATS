@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DRAGONS & CHATS</title>
     <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
+
   <div class="wrapper">
     <header>
         <nav>
@@ -31,11 +32,29 @@
     </footer>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+        <header>
+            <nav>
+              <span><a href="/dashboard">Home</a></span> 
+              {{#if loggedIn}}
+            <a href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+              </select>
+              <button id="logout" class="btn-no-style">Logout</button>
+              {{else}}      
+              <a href="/login">Login</a>
+              {{/if}}
+            </nav>
+        </header>
+        <main>
+          {{{ body }}}
+        </main>
+        <footer>
+        DGAS
+        </footer>
+
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
   
 </body>
-  
-
 </html>
