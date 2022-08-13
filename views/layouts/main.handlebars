@@ -14,7 +14,7 @@
         <nav>
           <span><a href="/dashboard">Home</a></span> 
           {{#if loggedIn}}
-         <a href="/dashboard/edituser">Settings</a> 
+         <a href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
           </select>
           <button id="logout" class="btn-no-style">Logout</button>
           {{else}}      
@@ -26,7 +26,7 @@
       {{{ body }}}
     </main>
     <footer>
-      Team name eventually
+     DGAS
     </footer>
   </div>
 
