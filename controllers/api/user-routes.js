@@ -17,11 +17,11 @@ router.post('/', (req, res)=> {
     })
     .then(newUserData => {
         req.session.save(()=> {
-            req.session.user_id = newUserData.id;
-            req.session.username = newUserData.username;
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
             req.session.loggedIn = true;
 
-            res.json(newUserData)
+            res.json(userData)
         });
     })
     .catch(err => {
