@@ -21,7 +21,33 @@
     </div>  
     <button type="submit">Update</button>
   </form>
+
+<h2>
+    Delete My Profile
+  </h2>
+
+ <form class="delete-user-form">
+ <div>
+      <label for="user-name"> Confirm User Name</label>
+      <input name="user-name" type="text" value="{{user.username}}" />
+    </div>
+    <div>
+      <label for="email"> Confirm your Email</label>
+      <input name="email" value="{{user.email}}" />
+    </div>
+     <div>
+      <label for="password">Confirm your Password</label>         
+      <input type="password" name="password" />
+    </div>
+    <div>
+      <input type="hidden" id="user-id" name="user-id" value={{user.id}} />
+    </div> 
+
+    <button type="submit" >Delete</button>
+  </form>
+
 </article>
 
 <!--Scripts-->
 <script src="/javascript/edit-user.js"></script>
+<script src="/javascript/delete-user.js"></script>
