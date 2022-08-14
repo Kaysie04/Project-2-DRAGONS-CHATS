@@ -16,7 +16,10 @@ router.get('/', withAuth, (req,res) => {
       }
     })
     .then(userData => {
-      res.render('dashboard', {loggedIn: true})
+      res.render('dashboard', {
+        loggedIn: true,
+        style: "style.css"
+      })
     })
     .catch(err => {
       console.log(err);
@@ -38,7 +41,10 @@ router.get('/edituser', withAuth, (req, res) => {
           return;
         }
         const user = userData.get({ plain: true });
-        res.render('edit-user', {user, loggedIn: true});
+        res.render('edit-user', {
+          user, loggedIn: true,
+          style: "logged-in-stylesheet.css"
+        });
       })
       .catch(err => {
         console.log(err);
@@ -50,7 +56,10 @@ router.get('/edituser', withAuth, (req, res) => {
       // route to chat-room
 
     router.get('/chat-room',function(req, res){
-      res.render('chat-room', {loggedIn: true })
+      res.render('chat-room', {
+        loggedIn: true,
+        styel: "chat-room-style.css"
+      })
     });
   
   module.exports = router;
