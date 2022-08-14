@@ -8,15 +8,15 @@
 </head>
 <body>
 
-   <button id="leave-chat-btn">Leave Chat</button>
+  
   
   <div id="message-container"></div>
   <form id="send-container">
     <input type="text" id="message-input">
-    <button type="submit" id="send-btn">Send</button>
+    <button type="submit" type="button" class="btn btn-outline-danger" id="send-btn">Send</button>
   </form>
 
-
+ <button type="button" class="btn btn-outline-danger" id="leave-chat-btn">Leave Chat</button>
   <script src="/socket.io/socket.io.js"></script>
   <script>
     const socket = io({

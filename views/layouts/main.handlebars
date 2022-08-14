@@ -12,17 +12,26 @@
 <body>
         <header>
             <nav>
-              <span><a href="/dashboard">Home</a></span> 
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+              <span><a class="nav-link" href="/dashboard">Home</a></span> 
+              </li>
+              <li class="nav-item">
               {{#if loggedIn}}
-            <a href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+            <a class="nav-link" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+              </li>
               </select>
               <button id="logout" class="btn-no-style">Logout</button>
-              {{else}}      
-              <a href="/login">Login</a>
+              {{else}}    
+                <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+              </li>
               {{/if}}
+              </ul>
             </nav>
+            
         </header>
-        <main>
+        <main class="text-center col-md-12">
           {{{ body }}}
         </main>
         <footer>
