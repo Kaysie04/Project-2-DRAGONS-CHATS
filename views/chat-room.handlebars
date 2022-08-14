@@ -67,6 +67,8 @@
     leaveChatButton.addEventListener('click', event => {
       event.preventDefault();
       socket.disconnect()
+      window.location = "/dashboard"
+      
     })
       </script>
 </body>
