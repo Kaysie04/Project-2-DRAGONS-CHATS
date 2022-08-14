@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>DRAGONS & CHATS</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
@@ -12,15 +12,16 @@
 
 <body>
         <header>
-            <nav>
-              <span><a href="/dashboard">Home</a></span> 
-              {{#if loggedIn}}
-            <a href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
-              </select>
-              <button id="logout" class="btn-no-style">Logout</button>
-              {{else}}      
-              <a href="/login">Login</a>
-              {{/if}}
+            <nav class = "container-fluid">
+              <div class="row">
+                <span class="btn btn-sm btn-primary" width=""><a href="/dashboard">Home</a></span> 
+                {{#if loggedIn}}
+                <a class="col-12 col-md-4" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+                <button class="col-12 col-md-4" id="logout" class="btn-no-style col-12 col-md-4 col">Logout</button>
+                {{else}}      
+                <a class= "btn btn-sm btn-primary" href="/login">Login</a>
+                {{/if}}
+               </div>
             </nav>
         </header>
         <main>
