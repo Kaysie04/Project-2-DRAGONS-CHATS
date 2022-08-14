@@ -43,7 +43,7 @@ router.get('/edituser', withAuth, (req, res) => {
         const user = userData.get({ plain: true });
         res.render('edit-user', {
           user, loggedIn: true,
-          style: "logged-in-stylesheet.css"
+          style: "logged-in-style.css"
         });
       })
       .catch(err => {
@@ -58,7 +58,7 @@ router.get('/edituser', withAuth, (req, res) => {
     router.get('/chat-room',function(req, res){
       res.render('chat-room', {
         loggedIn: true,
-        styel: "chat-room-style.css"
+        style: "chat-room-style.css"
       })
     });
   
