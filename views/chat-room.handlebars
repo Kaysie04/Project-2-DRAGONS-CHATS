@@ -27,9 +27,16 @@
     const messageInput = document.getElementById('message-input')
     const leaveChatButton = document.getElementById('leave-chat-btn')
     
-    const name = prompt('What is your name?')
-    appendMessage('You joined')
-    socket.emit('new-user', name)
+    createChatName = function () {
+      const name = prompt('Type in a character name?')
+      if (!name){
+        alert(" You must type in a valid name to join the chat room")
+        return createChatName();
+      }
+      appendMessage('You joined')
+      socket.emit('new-user', name)
+    }
+    createChatName();
     
     socket.on('chat-message', data => {
       appendMessage(`${data.name}: ${data.message}`)
@@ -60,6 +67,7 @@
     leaveChatButton.addEventListener('click', event => {
       event.preventDefault();
       socket.disconnect()
+      window.location = "/dashboard"
     })
       </script>
 </body>
