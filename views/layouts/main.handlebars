@@ -12,19 +12,27 @@
 
 <body>
         <header>
-            <nav class = "container-fluid">
-              <div class="row">
-                <span class="btn btn-sm btn-primary" width=""><a href="/dashboard">Home</a></span> 
-                {{#if loggedIn}}
-                <a class="col-12 col-md-4" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
-                <button class="col-12 col-md-4" id="logout" class="btn-no-style col-12 col-md-4 col">Logout</button>
-                {{else}}      
-                <a class= "btn btn-sm btn-primary" href="/login">Login</a>
-                {{/if}}
-               </div>
+            <nav>
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+              <span><a class="nav-link" href="/dashboard">Home</a></span> 
+              </li>
+              <li class="nav-item">
+              {{#if loggedIn}}
+            <a class="nav-link" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+              </li>
+              </select>
+              <button id="logout" class="btn-no-style">Logout</button>
+              {{else}}    
+                <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+              </li>
+              {{/if}}
+              </ul>
             </nav>
+            
         </header>
-        <main>
+        <main class="text-center col-md-12">
           {{{ body }}}
         </main>
         <footer>
