@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Chat App</title>
-</head>
-<body>
 
   
   
@@ -27,9 +18,16 @@
     const messageInput = document.getElementById('message-input')
     const leaveChatButton = document.getElementById('leave-chat-btn')
     
-    const name = prompt('What is your name?')
-    appendMessage('You joined')
-    socket.emit('new-user', name)
+    createChatName = function () {
+      const name = prompt('Type in a character name?')
+      if (!name){
+        alert(" You must type in a valid name to join the chat room")
+        return createChatName();
+      }
+      appendMessage('You joined')
+      socket.emit('new-user', name)
+    }
+    createChatName();
     
     socket.on('chat-message', data => {
       appendMessage(`${data.name}: ${data.message}`)
@@ -60,7 +58,6 @@
     leaveChatButton.addEventListener('click', event => {
       event.preventDefault();
       socket.disconnect()
+      window.location = "/dashboard"
     })
       </script>
-</body>
-</html>
