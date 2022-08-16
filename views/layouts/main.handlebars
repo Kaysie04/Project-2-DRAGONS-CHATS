@@ -12,17 +12,17 @@
 
 <body id="bimage">
         <header>
-            <nav class = "container-fluid">
-              <div class="row">
-                <span class="btn btn-sm btn-primary" width=""><a href="/dashboard">Home</a></span> 
+           
+              <div class= "d-flex flex-row bd-highlight mb-3">
+                <a class="p-2 bd-highlight" href="/dashboard">Home</a></span> 
                 {{#if loggedIn}}
-                <a class="col-12 col-md-4" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
-                <button class="col-12 col-md-4" id="logout" class="btn-no-style col-12 col-md-4 col">Logout</button>
+                <a class="p-2 bd-highlight" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+                <a class="p-2 bd-highlight" id="logout" href="/login" >Logout</button>
                 {{else}}      
-                <a class= "btn btn-sm btn-primary" href="/login">Login</a>
+                <a class="p-2 bd-highlight" href="/login">Login</a>
                 {{/if}}
                </div>
-            </nav>
+           
         </header>
         <main>
           {{{ body }}}
