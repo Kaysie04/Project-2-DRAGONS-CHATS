@@ -50,3 +50,6 @@ Settings:
 ## Deployed Site
 https://dragons-chat-final.herokuapp.com
 
+## License
+MIT
+
