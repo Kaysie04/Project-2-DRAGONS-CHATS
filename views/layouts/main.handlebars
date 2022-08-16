@@ -10,8 +10,21 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
+<body id="bimage">
         <header>
+
+           
+              <div class= "d-flex flex-row bd-highlight mb-3">
+                <a class="p-2 bd-highlight" href="/dashboard">Home</a></span> 
+                {{#if loggedIn}}
+                <a class="p-2 bd-highlight" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+                <a class="p-2 bd-highlight" id="logout" href="/login" >Logout</button>
+                {{else}}      
+                <a class="p-2 bd-highlight" href="/login">Login</a>
+                {{/if}}
+               </div>
+           
+
             <nav>
               <ul class="nav nav-pills">
                 <li class="nav-item">
@@ -36,7 +49,9 @@
           {{{ body }}}
         </main>
         <footer>
-        DGAS
+          <p>🐉DGAS🐉</p>
+          <p>⚔️License⚔️</p>
+          <p>🔮Add that weird copyright thingy from RUNBUDDY probs🔮</p>
         </footer>
 
   {{#if loggedIn}}
