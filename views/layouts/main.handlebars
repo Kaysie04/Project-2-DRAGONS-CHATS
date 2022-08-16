@@ -12,6 +12,7 @@
 
 <body id="bimage">
         <header>
+
            
               <div class= "d-flex flex-row bd-highlight mb-3">
                 <a class="p-2 bd-highlight" href="/dashboard">Home</a></span> 
@@ -23,8 +24,28 @@
                 {{/if}}
                </div>
            
+
+            <nav>
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+              <span><a class="nav-link" href="/dashboard">Home</a></span> 
+              </li>
+              <li class="nav-item">
+              {{#if loggedIn}}
+            <a class="nav-link" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
+              </li>
+              </select>
+              <button id="logout" class="btn-no-style">Logout</button>
+              {{else}}    
+                <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+              </li>
+              {{/if}}
+              </ul>
+            </nav>
+            
         </header>
-        <main>
+        <main class="text-center col-md-12">
           {{{ body }}}
         </main>
         <footer>
