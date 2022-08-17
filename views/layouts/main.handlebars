@@ -12,21 +12,19 @@
 
 <body id="bimage">
         <header>
-            <nav class = "container-fluid">
-              <div class="row">
-                <span class="btn btn-sm btn-primary" width=""><a href="/dashboard">Home</a></span> 
+          <h2>Dragon's and Chat</h2>
+              <div class= "d-flex flex-row bd-highlight mb-3">
                 {{#if loggedIn}}
-                <a class="col-12 col-md-4" href="/dashboard/edituser/:{{userData.id}}">Settings</a> 
-                {{!-- <button class="col-12 col-md-4" id="logout" class="btn-no-style col-12 col-md-4 col">Logout</button> --}}
                 {{else}}      
-                <a class= "btn btn-sm btn-primary" href="/login">Login</a>
+                <a class="p-2 bd-highlight" href="/login">Login</a>
                 {{/if}}
                </div>
-            </nav>
         </header>
-        <main>
+        
+        <main class="text-center col-md-12">
           {{{ body }}}
         </main>
+        
         <footer>
           <p>🐉DGAS🐉</p>
           <p>⚔️License⚔️</p>

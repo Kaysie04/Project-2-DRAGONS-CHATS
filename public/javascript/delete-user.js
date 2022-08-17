@@ -6,11 +6,11 @@ async function deleteFormHandler(event) {
     const id = document.querySelector('input[name="user-id"]').value;
     const response = await fetch(`/api/users/${id}`, {
         method: 'DELETE',
-        // body: JSON.stringify(userUpdate),
         headers: {
           'Content-Type': 'application/json'
         }
       });
+      
     // if the delete action is successful, redirect to the login page, otherwise display the error
     if (response.ok) {
         document.location.replace('/');

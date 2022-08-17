@@ -1,5 +1,8 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <a href="/dashboard" type="button" class="btn btn-outline-danger"> &larr; Back to dashboard</a>
+  <div class="container">
+    <div class="row">
+  <div class="col-sm">
   <h2>
     Update My Profile
   </h2>
@@ -19,9 +22,10 @@
     <div>
       <input type="hidden" id="user-id" name="user-id" value={{user.id}} />
     </div>  
-    <button type="submit">Update</button>
+    <button type="submit" type="button" class="btn btn-outline-danger">Update</button>
   </form>
-
+</div>
+<div class="col-sm">
 <h2>
     Delete My Profile
   </h2>
@@ -43,9 +47,11 @@
       <input type="hidden" id="user-id" name="user-id" value={{user.id}} />
     </div> 
 
-    <button type="submit" >Delete</button>
+    <button type="submit" type="button" class="btn btn-outline-danger" >Delete</button>
   </form>
-
+</div>
+</div>
+</div>
 </article>
 
 <!--Scripts-->
